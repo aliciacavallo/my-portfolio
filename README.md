@@ -1,8 +1,7 @@
 # Book en UI et webdesign - Alicia CAVALLO 
-[![forthebadge](/badges/uses-html.svg)](https://forthebadge.com)[![forthebadge](/badges/uses-css.svg)](https://forthebadge.com)
 
 ## UI et webdesigner Junior
-Voici mon book ! Il regroupe mes différents projets.
+Voici mon book ! Il regroupe mes différents projets. <br>
 Je suis dans le sud de la France, en Occitanie.
 
 ## Actuellement 
