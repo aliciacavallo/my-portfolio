@@ -11,9 +11,11 @@ h2 {
     font-size: 32px;
     color: var(--menthe);
 }
+/* HEADER */
 header {
     height: 150px;
     padding: 15px;
+    background-color: var(--bleu);
 }
 h2 a {
     text-decoration: none;
@@ -28,9 +30,9 @@ h2 a {
     justify-content: space-between;
     align-items: center ;
 }
-/* HEADER */
-header {
-    background-color: var(--blanc);
+.active {
+    color: var(--blanc) ;
+    font-weight: 800;
 }
 #conteneur {
     width: 120px;
@@ -41,7 +43,8 @@ header {
 #conteneur img {
     width: 120%;
     height: 110%;
-    object-fit: cover
+    object-fit: cover;
+    overflow: hidden;
 }
 header nav {
     display: flex;
@@ -51,29 +54,40 @@ header nav ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    flex-direction: row;
     gap: 30px;
 }
 header nav ul li a {
     text-decoration: none ;
-    color: var(--bleu);
+    color: var(--blanc);
     transition: color 0.3s ease;
 }
 /* On passe au hero */
 #hero {
     height: 400px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(0,0,0,0.6)),url(../img/pexels-icon0-479453.jpg);
-    background-repeat: repeat;
-    background-size: 100%;
-    background-position: center;
     margin-bottom: 30px ;
 }
-#hero h1 + #hero h2 {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+#hero img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  opacity: 55%;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 #hero h1 {
     margin-bottom: 10px;
@@ -100,10 +114,8 @@ header nav ul li a {
 #annonce1 h3, #annonce2 h3 {
     margin-top: 15px;
     text-align: center;
-    border: 2px;
 }
 #annonce1 p, #annonce2 p {
-    flex-wrap: wrap;
     margin: 15px 0 ;
 }
 .annonce {
@@ -111,7 +123,7 @@ header nav ul li a {
     border: 2px solid var(--jaune);
     border-radius: 25px;
     text-align: center;
-    padding : 10px 20px
+    padding: 10px 20px;
 }
 .cta {
     text-decoration: none ;
@@ -119,7 +131,7 @@ header nav ul li a {
     padding: 15px;
     text-align: center;
     color: white;
-    background-color: var(--orange);
+    background-color: var(--marron);
     border-radius: 24px;
     margin: 15px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,10 +145,8 @@ header nav ul li a {
     text-align: center;
     text-decoration: none;
     margin: 15px;
-}
-#sectionapropos h2 a {
     text-decoration: none;
-    color: var(--menthe);
+    color: var(--blanc);
 }
 .wrapper {
     max-width: 1170px;
@@ -163,7 +173,7 @@ header nav ul li a {
     width: 100%;
     height: 100%;
     object-fit: cover;  
-    display: block;;
+    display: block;
 }
 #groupecta {
     display: flex;
@@ -176,6 +186,7 @@ header nav ul li a {
     flex-direction: column;
     align-items: center;
     padding: 15px;
+    text-align: center;
 }
 #sectionprojets h2, #sectionprojets p {
     text-align: center;
@@ -224,7 +235,7 @@ footer nav svg {
 footer #linkedin path,
 footer #instagram path,
 footer #mail path {
-  fill: white;      /* ← Couleur blanche */
+  fill: white;
   transition: fill 0.3s ease;
 }
 #arrow {
@@ -238,22 +249,29 @@ footer #arrow path {
 /* HOOVER */
 .cta:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 15px rgba(255,165,0,0.4); /* orange glow */
-  background: linear-gradient(45deg, var(--orange), #ff8c00);
+  box-shadow: 0 12px 15px rgba(139,69,19,0.4); 
+  background:linear-gradient(45deg, var(--marron), #a0522d);
 }
 header nav ul li a:hover {
     color: var(--orange);
     transform: scale(1.02);
 }
 #liensfooter a:hover {
-    transform: scale(1.02);
-    color: var(--orange) !important;
-    transform: translateX(4px);
+    transform: translateX(4px) scale(1.02);
+    color: var(--menthe) !important;
     opacity: 1;
 }
 footer svg:hover path {
   fill: var(--menthe) !important;
 }
-h2 a:hover, #coindesannonces h2:hover, #sectionapropos h2 a:hover {
-    color: var(--jaune);
+/* ACCESSIBILITE */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  white-space: nowrap;
 }
+
