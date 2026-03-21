@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--blanc);
@@ -19,6 +20,17 @@ h2 {
   clip: rect(0,0,0,0);
   border: 0;
   white-space: nowrap;
+}
+.cta {
+    text-decoration: none ;
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background-color: var(--marron);
+    border-radius: 24px;
+    margin: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* HEADER */
 header {
@@ -101,8 +113,75 @@ header nav ul li a {
 #hero h1 {
     margin-bottom: 10px;
 }
-
-
+/* SECTION 01 - PARCOURS EN BREF */
+#parcours {
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+    gap: 50px;
+    margin: 35px;
+} 
+#parcours h2 {
+    margin: 15px 0 ;
+}
+#colonne01 {
+    width: 650px;
+    margin-right: 15px;
+}
+#colonne01 p {
+    margin-top: 15px;
+    line-height: 2;
+}
+#colonne02 {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-content: center;
+}
+#conteneurimg {
+    width: 450px;  
+    height: 450px;
+    border-radius: 36px; 
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+#conteneurimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 40% 25% ;
+    overflow: hidden;
+}
+/* SECTION 02 - QUAND JE NE SUIS PAS EN TRAIN DE DESIGNER */
+#hobby {
+    margin-top: 35px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#hobby h2 {
+    margin: 20px 0 ;
+}
+#activites h3 {
+    margin: 20px 0 ;
+}
+#activites {
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+}
+.hobbyitems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+}
+#activites p {
+    margin: 30pxpx;
+}
 /* FOOTER */
 footer {
     height: 150px;
