@@ -1,0 +1,241 @@
+/* GENERAL */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanc);
+    color: var(--bleu);
+}
+h1 {
+    font-size: 48px;
+    color: var(--orange);
+}
+h2 {
+    font-size: 32px;
+    color: var(--menthe);
+}
+h2, h2+p, h3 {
+    margin: 10px;
+    margin-left: 30px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  white-space: nowrap;
+}
+.cta {
+    text-decoration: none ;
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background-color: var(--marron);
+    border-radius: 24px;
+    margin: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wrapper {
+    max-width: 1170px;
+    margin: auto;
+}
+img {
+    max-height: 500px;
+}
+section .retourautop {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0px;
+}
+/* HEADER */
+header {
+    height: 150px;
+    padding: 15px;
+    background-color: var(--bleu);
+}
+h2 a {
+    text-decoration: none;
+    text-align: center;
+    color: var(--menthe);
+}
+.wrapperheader {
+    max-width: 1170px;
+    margin: auto ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center ;
+}
+.wrapper{
+    max-width: 1850px;
+}
+.active {
+    color: var(--blanc) ;
+    font-weight: 800;
+}
+#conteneur {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#conteneur img {
+    width: 120%;
+    height: 110%;
+    object-fit: cover;
+    overflow: hidden;
+}
+header nav {
+    display: flex;
+    justify-content: center;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+header nav ul li a {
+    text-decoration: none ;
+    color: var(--blanc);
+    transition: color 0.3s ease;
+}
+/* On passe au hero */
+#hero {
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px ;
+}
+#hero img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  opacity: 55%;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--orange);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+#hero h1 {
+    margin-bottom: 10px;
+}
+/* Mail */
+.at::before {
+    content: 'aliciacavallo.pro'
+}
+.at::after {
+    content: '@gmail.com';
+}
+#email {
+    max-width: 1170px;
+    margin: auto;
+    text-align: center;
+    border: 2px solid var(--jaune);
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+}
+#listereseaux #linkedin path,
+#listereseaux #instagram path,
+#listereseaux #behance path,
+#listereseaux #github path,
+#listereseaux #karde path  {
+    fill: var(--orange);
+}
+#listereseaux {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+/* GROUPE DE CTA */
+.groupecta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0 ;
+}
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    height: 150px;
+    background-color: var(--bleu);
+    padding: 30px;
+}
+#wrapperfooter {
+    max-width: 1170px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#liensfooter {
+    display: flex;
+    flex-direction: column;
+}
+footer nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+footer nav svg {
+    height: 50px;
+    transition: all 0.3s ease;
+}
+#liensfooter a {
+    text-decoration: none;
+    color: var(--blanc);
+}
+footer #linkedin path,
+footer #instagram path,
+footer #mail path {
+  fill: white;
+  transition: fill 0.3s ease;
+}
+#arrow {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+footer #arrow path {
+    fill: white;
+}
+/* HOOVER */
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 15px rgba(139,69,19,0.4); 
+  background:linear-gradient(45deg, var(--marron), #a0522d);
+}
+header nav ul li a:hover {
+    color: var(--orange);
+    transform: scale(1.02);
+}
+#liensfooter a:hover {
+    transform: translateX(4px) scale(1.02);
+    color: var(--menthe) !important;
+    opacity: 1;
+}
+footer svg:hover path {
+  fill: var(--menthe) !important;
+}
+#sommaire ul li a:hover{
+    font-weight: 700;
+    color: var(--marron);
+}
+#listereseaux svg:hover path{
+    fill: var(--jaune) !important;
+}
