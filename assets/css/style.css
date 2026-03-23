@@ -198,6 +198,13 @@ header nav ul li a {
     gap: 2rem;
     margin: 4rem 0;
 }
+#galerie img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
 #sectionprojets .cta {
     display: inline-block;
     margin-bottom: 30px;
