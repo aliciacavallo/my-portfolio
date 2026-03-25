@@ -38,8 +38,8 @@
                 </div>
             </div>
         </section>
-        <section id="sommaire" >
-            <div class="wrapper">
+        <section id="sommaire" class="wrapper">
+            <div>
                 <h3>Sommaire des réalisations</h3>
                 <p>Voici quelques projets en PAO et design graphique, en code (HTML et CSS) et intégration ou encore en maquettages web.</p>
                 <ul>
@@ -47,10 +47,11 @@
                     <li><a href="#photoshop">Réalisations sur Photoshop</a></li>
                     <li><a href="#logo">Défis logo et branding</a></li>
                     <li><a href="#web">Exercices web : du HTML au CSS</a></li>
+                    <li><a href="#maquettes">Maquettes sur Figma</a></li>
                 </ul>
             </div>
         </section>
-        <section>
+        <section class="wrapper">
             <h2>Réalisations sur Illustrator</h2>
             <p>Au cours de ma formation, j'ai appris à prendre en main Illustrator. Pour faire ceci, plusieurs exercices ont été réalisés dont, notamment, des reproductions de logo et des reproductions d'illustrations vectorielles.</p>
             <div id="illustrator"class="wrapper">
@@ -84,7 +85,7 @@
                 </a>
             </div>
         </section>
-        <section>
+        <section class="wrapper">
             <h2>Réalisations sur Photoshop</h2>
             <div id="photoshop" class="wrapper">
                 <figure>
@@ -104,8 +105,10 @@
                     <figcaption>Moodboard pour le projet de création de site web d'un diagnostiqueur immobilier.</figcaption>
                 </figure>
                 <figure id="visages">
-                    <img src="../img/photoshop-visage01.png" alt="avant la retouche visage" title="retouche visage">
-                    <img src="../img/photoshop-visage02.png" alt="après la retouche visage" title="retouche visage">
+                    <div class="groupeimg">
+                        <img src="../img/photoshop-visage01.png" alt="avant la retouche visage" title="retouche visage">
+                        <img src="../img/photoshop-visage02.png" alt="après la retouche visage" title="retouche visage">
+                    </div>
                     <figcaption>Travail des visages sur Photoshop. Avant / Après</figcaption>
                 </figure>
             </div>
@@ -118,7 +121,7 @@
                 </a>
             </div>
         </section>
-        <section>
+        <section class="wrapper"> 
             <h2 id="logo">Défis logo et branding</h2>
                 <div id="boucherie" class="galerie wrapper">
                     <figure>
@@ -200,7 +203,7 @@
                 </a>
             </div>
         </section>
-        <section>
+        <section class="wrapper">
             <h2 id="web">Exercices web : du HTML au CSS</h2>
                 <h3>Exercices en HTML</h3>
                 <div id="exercicehtml" class="wrapper zoom">
@@ -235,6 +238,30 @@
                         <video controls muted height="300px" src="../img/css-premierepage04.mp4" aria-label="ma mise en page du site une fois codé"></video>
                         <figcaption>Rendu vidéo de la page que j'ai réalisée</figcaption>
                     </figure>
+            </div>
+            <div>
+                <a href="#top" class="retourautop" aria-label="Retour vers le haut de la page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" id="arrow">
+                        <!-- Font Awesome Free - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc. -->
+                        <path d="M342.6 73.4C330.1 60.9 309.8 60.9 297.3 73.4L137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7C149.8 291.2 170.1 291.2 182.6 278.7L288 173.3L288 544C288 561.7 302.3 576 320 576C337.7 576 352 561.7 352 544L352 173.3L457.4 278.7C469.9 291.2 490.2 291.2 502.7 278.7C515.2 266.2 515.2 245.9 502.7 233.4L342.7 73.4z"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+        <section class="wrapper">
+            <h2 id="maquettes">Maquettes</h2>
+            <div>
+                <h3>Exercice Figma : Maquette Bonjour.</h3>
+                <p>Voici le lien vers la réalisation Figma : <a href="https://www.figma.com/design/gMDo8Mf3pP0Yscv4JIkBkJ/Bonjour.?node-id=0-1&t=ngasuP2LWwysjCCB-1">cliquez ici</a></p>
+                <div id="galeriemaquette" class="wrapper">
+                    <figure>
+                        <img src="../img/figmabonjour-desk.png" alt="Maquette à reproduire sous forme desktop">
+                        <figcaption>Maquette à reproduire en version desktop</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../img/figmabonjour-mobile.png" alt="Maquette à reproduire sous forme mobile">
+                    </figure>
+                </div>
             </div>
             <div>
                 <a href="#top" class="retourautop" aria-label="Retour vers le haut de la page">
