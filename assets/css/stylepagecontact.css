@@ -17,6 +17,7 @@ h2 {
     line-height: 1.2;
     margin-bottom: 2rem ;
     color : var(--bleu);
+    margin: 1.5rem;
 }
 h3 {
   font-size: clamp(2.2rem, 1.98rem + 0.68vw, 2.8rem);
