@@ -196,52 +196,21 @@ header nav ul li a {
     color: var(--blanc);
     transition: color 0.3s ease;
 }
-/* On passe au hero */
-#hero {
-    height: 400px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px ;
-}
-#hero img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 1;
-  opacity: 55%;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: var(--orange);
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-}
-#hero h1 {
-    margin-bottom: 10px;
-}
 /* Mail */
 .at::before {
     content: 'aliciacavallo.pro'
 }
 .at::after {
-    content: '@gmail.com';
+    content: 'gmail.com';
 }
 #email {
     max-width: 1170px;
-    margin: auto;
+    margin: 0 auto 2.5rem auto;
     text-align: center;
     border: 2px solid var(--jaune);
-    border-radius: 25px;
-    padding: 10px 20px;
-    margin-bottom: 25px;
+    border-radius: 2.5rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2.5rem; 
 }
 #listereseaux #linkedin path,
 #listereseaux #instagram path,
