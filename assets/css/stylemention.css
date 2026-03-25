@@ -151,3 +151,44 @@ footer #mail path {
 footer #arrow path {
     fill: white;
 }
+/* HOOVER */
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.2rem 1.5rem rgba(139,69,19,0.4); 
+  background:linear-gradient(45deg, var(--marron), #a0522d);
+}
+header nav ul li a:hover {
+    color: var(--orange);
+    transform: scale(1.02);
+}
+#contenutxt:hover {
+    background-color: var(--bleu);
+    color: var(--blanc);
+    border-radius: 2.5rem ;
+    padding: 1.5rem;
+}
+#liensfooter a:hover {
+    transform: translateX(4px) scale(1.02);
+    color: var(--menthe) !important;
+    opacity: 1;
+}
+footer svg:hover path {
+  fill: var(--menthe) !important;
+}
+/* MEDIA QUERY : 640PX */
+@media screen and (max-width: 640px) {
+    .wrapperheader {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center ;
+    }
+    #conteneur {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    }
+    header nav {
+        margin: 1.5rem 0;
+    }
+}
