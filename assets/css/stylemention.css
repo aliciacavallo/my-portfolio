@@ -39,6 +39,10 @@ p, a, figcaption, strong, li {
     margin: 1.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.active {
+    color: var(--menthe) ;
+    font-weight: 800;
+}
 /* ACCESSIBILITE */
 .sr-only {
   position: absolute;
@@ -169,7 +173,7 @@ header nav ul li a:hover {
 }
 #liensfooter a:hover {
     transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
+    color: var(--blanc) !important;
     opacity: 1;
 }
 footer svg:hover path {
@@ -177,18 +181,54 @@ footer svg:hover path {
 }
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
+    /* HEADER */
+    header {
+        height: auto ;
+    }
     .wrapperheader {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center ;
     }
     #conteneur {
     width: 9rem;
     height: 9rem;
     border-radius: 50%;
     overflow: hidden;
+    margin-bottom: 1.5rem;
     }
-    header nav {
-        margin: 1.5rem 0;
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    header nav ul li a {
+        white-space: nowrap; 
+        font-size: 1.4rem; 
+    }
+    #hero {
+        height: auto;
+    }
+    .cta {
+        padding: 1rem;
+    }
+    /* FOOTER */
+    footer {
+        height: auto;
+    }
+    #wrapperfooter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #liensfooter {
+        align-items: center;
+    }
+    footer nav {
+        gap: 2rem;
+    }
+    footer nav svg, #arrow{
+        height: 4rem ;
     }
 }
