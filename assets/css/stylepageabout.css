@@ -249,6 +249,95 @@ footer #mail path {
 footer #arrow path {
     fill: white;
 }
+/* MEDIA QUERY : 640PX */
+@media screen and (max-width: 640px) {
+    /* HEADER */
+    header {
+        height: auto ;
+    }
+    .wrapperheader {
+    flex-direction: column;
+    }
+    #conteneur {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    }
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    header nav ul li a {
+        white-space: nowrap; 
+        font-size: 1.4rem; 
+    }
+    #hero {
+        height: auto;
+    }
+    .cta {
+        padding: 1rem;
+    }
+    /* PARCOURS */
+    main, section, div, p {
+        max-width: 100vw; 
+        box-sizing: border-box;
+    }
+    #parcours {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #conteneurimg {
+        display: none; }
+    #contenutxt, #titre h2 {
+        margin: 0 1.5rem;
+    }
+    #contenutxt {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    #activites {
+        flex-direction: column; 
+        gap: 2rem;
+    }
+    .hobbyitems {
+        width: 100%; 
+        padding: 1.5rem; 
+    }
+    #hobby > p {
+        margin-top: 3rem;
+        text-align: center;
+        font-style: italic;
+        padding: 0 1rem;
+    }
+    #hobby > h2 {
+        text-align: center;
+    }
+    /* FOOTER */
+    footer {
+        height: auto;
+    }
+    #wrapperfooter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #liensfooter {
+        align-items: center;
+    }
+    footer nav {
+        gap: 2rem;
+    }
+    footer nav svg, #arrow{
+        height: 4rem ;
+    }
+}
 /* HOOVER */
 .cta:hover {
   transform: translateY(-4px);
@@ -272,56 +361,4 @@ header nav ul li a:hover {
 }
 footer svg:hover path {
   fill: var(--menthe) !important;
-}
-/* MEDIA QUERY : 640PX */
-@media screen and (max-width: 640px) {
-    .wrapperheader {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center ;
-    }
-    #conteneur {
-    width: 9rem;
-    height: 9rem;
-    border-radius: 50%;
-    overflow: hidden;
-    }
-    header nav {
-        margin: 1.5rem 0;
-    }
-    #hero {
-        height: 25rem;
-    }
-    .cta {
-        padding: 1rem;
-    }
-    #parcours {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-    #colonne01 {
-        text-align: center; 
-        padding: 2rem;
-    }
-    #conteneurimg {
-        display: none; }
-    #activites {
-        flex-direction: column; 
-        gap: 2rem;
-    }
-    .hobbyitems {
-        width: 100%; 
-        padding: 1.5rem; 
-    }
-    #hobby > p {
-        margin-top: 3rem;
-        text-align: center;
-        font-style: italic;
-        padding: 0 1rem;
-    }
-    #hobby > h2 {
-        text-align: center;
-    }
 }
