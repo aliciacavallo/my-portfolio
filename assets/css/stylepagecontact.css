@@ -143,59 +143,6 @@ header nav ul li a {
 #hero h1 {
     margin-bottom: 1rem;
 }
-/* HEADER */
-header {
-    height: 150px;
-    padding: 15px;
-    background-color: var(--bleu);
-}
-h2 a {
-    text-decoration: none;
-    text-align: center;
-    color: var(--menthe);
-}
-.wrapperheader {
-    max-width: 1170px;
-    margin: auto ;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center ;
-}
-.wrapper{
-    max-width: 1850px;
-}
-.active {
-    color: var(--blanc) ;
-    font-weight: 800;
-}
-#conteneur {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-#conteneur img {
-    width: 120%;
-    height: 110%;
-    object-fit: cover;
-    overflow: hidden;
-}
-header nav {
-    display: flex;
-    justify-content: center;
-}
-header nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
-header nav ul li a {
-    text-decoration: none ;
-    color: var(--blanc);
-    transition: color 0.3s ease;
-}
 /* Mail */
 .at::before {
     content: 'aliciacavallo.pro'
@@ -204,7 +151,7 @@ header nav ul li a {
     content: 'gmail.com';
 }
 #email {
-    max-width: 1170px;
+    max-width: 86rem;
     margin: 0 auto 2.5rem auto;
     text-align: center;
     border: 2px solid var(--jaune);
@@ -305,28 +252,74 @@ footer svg:hover path {
 }
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
+    /* HEADER */
+    header {
+        height: auto ;
+    }
     .wrapperheader {
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center ;    
+    flex-direction: column;
     }
     #conteneur {
-        width: 9rem;
-        height: 9rem;
-        border-radius: 50%;
-        overflow: hidden;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
     }
-    header nav {
-            margin: 1.5rem 0;
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    header nav ul li a {
+        white-space: nowrap; 
+        font-size: 1.4rem; 
     }
     #hero {
-            height: 25rem;
+        height: auto;
     }
     .cta {
-            padding: 1rem;
+        padding: 1rem;
     }
-    main {
-        max-width: 620px;
-        margin: auto;
+    /* CONTENU */
+    #email, .wrapper {
+        max-width: 30rem;
+        margin: auto;   
+    }
+    #listereseaux {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .groupecta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .groupecta .cta {
+        display: block;
+        
+    }
+    /* FOOTER */
+    footer {
+        height: auto;
+    }
+    #wrapperfooter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #liensfooter {
+        align-items: center;
+    }
+    footer nav {
+        gap: 2rem;
+    }
+    footer nav svg, #arrow{
+        height: 4rem ;
     }
 }
