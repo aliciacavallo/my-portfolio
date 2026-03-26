@@ -27,6 +27,21 @@ p, a, figcaption {
     line-height: 1.6; 
     margin-bottom: 1.5rem;
 }
+/* ACCESSIBILITE */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce){
+  html {
+    scroll-behavior: auto;
+  }
+}
 /* HEADER */
 header {
     height: 15rem;
@@ -164,6 +179,9 @@ header nav ul li a {
     text-decoration: none;
     color: var(--blanc);
 }
+.texte-mobile {
+    display: none;
+}
 .wrapper {
     max-width: 1170px;
     margin: auto;
@@ -274,33 +292,80 @@ footer #arrow path {
 }
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
+    /* HEADER */
+    header {
+        height: auto ;
+    }
     .wrapperheader {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center ;
     }
     #conteneur {
     width: 9rem;
     height: 9rem;
     border-radius: 50%;
     overflow: hidden;
+    margin-bottom: 1.5rem;
     }
-    header nav {
-        margin: 1.5rem 0;
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        gap: 1rem;
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    header nav ul li a {
+        white-space: nowrap; 
+        font-size: 1.4rem; 
     }
     #hero {
-        height: 25rem;
+        height: auto;
+    }
+    /* COIN DES ANNONCES */
+    #annoncebox {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    /* LE A PROPOS */
+    #apropos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #groupecta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     #colonne2 {
-        width: 50rem;
-        height: 24rem;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
     }
-    #colonne2 img {
-        width: 120%;
-        height: 130%;
+    .texte-pc {
+        display: none;
     }
-    .cta {
-        padding: 1rem;
+    .texte-mobile {
+        display: inline;
+    }
+    /* FOOTER */
+    footer {
+        height: auto;
+    }
+    #wrapperfooter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    #liensfooter {
+        align-items: center;
+    }
+    footer nav {
+        gap: 2rem;
+    }
+    footer nav svg, #arrow{
+        height: 4rem ;
     }
 }
 /* HOOVER */
@@ -322,7 +387,6 @@ footer svg:hover path {
   fill: var(--menthe) !important;
 }
 .annonce:hover {
-    background: var(--jaune);
     padding: 2rem 3rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.05) ;
@@ -330,19 +394,4 @@ footer svg:hover path {
 #galerie figure a:hover img {
     transform: scale(1.05);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-/* ACCESSIBILITE */
-.sr-only {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-  white-space: nowrap;
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
