@@ -40,6 +40,8 @@ p, a, figcaption, strong, li {
     margin: 1.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.burger {display: none;}
+.burger-input {display: none;}
 /* ACCESSIBILITE */
 .sr-only {
   position: absolute;
@@ -64,6 +66,7 @@ img {
 }
 /* HEADER */
 header {
+    position: relative;
     height: 15rem;
     padding: 1.5rem;
     background-color: var(--bleu);
@@ -111,6 +114,30 @@ header nav ul li a {
     text-decoration: none ;
     color: var(--blanc);
     transition: color 0.3s ease;
+}
+.langswitch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 3rem;  
+}
+.langswitch span {
+    color: var(--blanc);
+    opacity: 0.4;
+}
+.langswitch button {
+    background: transparent;
+    border: 0.1rem solid var(--blanc);
+    border-radius: 0.6rem;
+    color: var(--blanc);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.4rem, 1.3rem + 0.2vw, 1.6rem);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+button .boutonactif {
+    opacity: 1;
 }
 /* On passe au hero */
 #hero {
@@ -225,39 +252,16 @@ footer #mail path {
 footer #arrow path {
     fill: white;
 }
-/* HOOVER */
-.cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 15px rgba(139,69,19,0.4); 
-  background:linear-gradient(45deg, var(--marron), #a0522d);
-}
-header nav ul li a:hover {
-    color: var(--orange);
-    transform: scale(1.02);
-}
-#liensfooter a:hover {
-    transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
-    opacity: 1;
-}
-footer svg:hover path {
-  fill: var(--menthe) !important;
-}
-#sommaire ul li a:hover{
-    font-weight: 700;
-    color: var(--marron);
-}
-#listereseaux svg:hover path{
-    fill: var(--jaune) !important;
-}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
-    /* HEADER */
     header {
         height: auto ;
     }
     .wrapperheader {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
     }
     #conteneur {
     width: 9rem;
@@ -266,16 +270,48 @@ footer svg:hover path {
     overflow: hidden;
     margin-bottom: 1.5rem;
     }
-    header nav ul {
-        margin: 0;
-        padding: 0;
-        gap: 1rem;
-        flex-wrap: wrap; 
-        justify-content: center;
+    .navcontrol {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
     }
-    header nav ul li a {
-        white-space: nowrap; 
-        font-size: 1.4rem; 
+    /* MENU BURGER */
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.8rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+    .burger span {
+        display: block;
+        height: 0.3rem;
+        background-color: white;
+        border: 0.5rem;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    #navmenu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bleu);
+        padding: 1.5rem;
+        gap: 1.5rem;
+        list-style: none;
+        z-index: 10;
+    }
+    input:checked ~ #navmenu {display: flex;}
+    input:checked ~ .burger span:nth-child(1) {transform: translateY(9px) rotate(45deg);}
+    input:checked ~ .burger span:nth-child(2) {opacity: 0;}
+    input:checked ~ .burger span:nth-child(3) {transform: translateY(-9px) rotate(-45deg);}
+    #hero {
+        height: auto;
     }
     #hero {
         height: auto;
@@ -322,4 +358,32 @@ footer svg:hover path {
     footer nav svg, #arrow{
         height: 4rem ;
     }
+}
+/* HOOVER */
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 15px rgba(139,69,19,0.4); 
+  background:linear-gradient(45deg, var(--marron), #a0522d);
+}
+header nav ul li a:hover {
+    color: var(--orange);
+    transform: scale(1.02);
+}
+.langswitch button:hover {
+    opacity: 0.5;
+}
+#liensfooter a:hover {
+    transform: translateX(4px) scale(1.02);
+    color: var(--menthe) !important;
+    opacity: 1;
+}
+footer svg:hover path {
+  fill: var(--menthe) !important;
+}
+#sommaire ul li a:hover{
+    font-weight: 700;
+    color: var(--marron);
+}
+#listereseaux svg:hover path{
+    fill: var(--jaune) !important;
 }
