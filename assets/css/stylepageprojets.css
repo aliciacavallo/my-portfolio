@@ -46,14 +46,14 @@ p, a, figcaption, strong, li {
     max-width: 1170px;
     margin: auto;
 }
-img {
-    max-height: 500px;
-}
+img {max-height: 500px;}
 section .retourautop {
     display: flex;
     justify-content: center;
     padding: 25px 0px;
 }
+.burger {display: none;}
+.burger-input {display: none;}
 /* ACCESSIBILITE */
 .sr-only {
   position: absolute;
@@ -71,6 +71,7 @@ section .retourautop {
 }
 /* HEADER */
 header {
+    position: relative;
     height: 15rem;
     padding: 1.5rem;
     background-color: var(--bleu);
@@ -119,6 +120,30 @@ header nav ul li a {
     color: var(--blanc);
     transition: color 0.3s ease;
 }
+.langswitch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 3rem;  
+}
+.langswitch span {
+    color: var(--blanc);
+    opacity: 0.4;
+}
+.langswitch button {
+    background: transparent;
+    border: 0.1rem solid var(--blanc);
+    border-radius: 0.6rem;
+    color: var(--blanc);
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.4rem, 1.3rem + 0.2vw, 1.6rem);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+button .boutonactif {
+    opacity: 1;
+}
 /* On passe au hero */
 #hero {
     height: 40rem;
@@ -161,13 +186,20 @@ header nav ul li a {
   list-style: none;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
   text-align: center;
 }
 #sommaire a {
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--bleu);
+    border-radius: 0.6rem;
     text-decoration: none;
-    color: var(--marron);
+    color: var(--bleu);
+    background: transparent;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
 }
 /* PARTIE 01 - ILLUSTRATOR */
 #illustrator {
@@ -287,39 +319,6 @@ footer #mail path {
 footer #arrow path {
     fill: white;
 }
-/* HOOVER */
-.cta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1.2rem 1.5rem rgba(139,69,19,0.4); 
-  background:linear-gradient(45deg, var(--marron), #a0522d);
-}
-header nav ul li a:hover {
-    color: var(--orange);
-    transform: scale(1.02);
-}
-#contenutxt:hover {
-    background-color: var(--bleu);
-    color: var(--blanc);
-    border-radius: 2.5rem ;
-    padding: 1.5rem;
-}
-#liensfooter a:hover {
-    transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
-    opacity: 1;
-}
-footer svg:hover path {
-  fill: var(--menthe) !important;
-}
-figure a:hover img, figure img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-#sommaire ul a:hover{
-    color: var(--orange);
-    transform: scale(1.02);
-    font-weight: 600;
-}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
     /* HEADER */
@@ -327,7 +326,10 @@ figure a:hover img, figure img:hover {
         height: auto ;
     }
     .wrapperheader {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
     }
     #conteneur {
     width: 9rem;
@@ -336,23 +338,48 @@ figure a:hover img, figure img:hover {
     overflow: hidden;
     margin-bottom: 1.5rem;
     }
-    header nav ul {
-        margin: 0;
-        padding: 0;
-        gap: 1rem;
-        flex-wrap: wrap; 
-        justify-content: center;
+    .navcontrol {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
     }
-    header nav ul li a {
-        white-space: nowrap; 
-        font-size: 1.4rem; 
+    /* MENU BURGER */
+    .burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 2.8rem;
+        height: 2rem;
+        cursor: pointer;
     }
-    #hero {
-        height: auto;
+    .burger span {
+        display: block;
+        height: 0.3rem;
+        background-color: white;
+        border: 0.5rem;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
-    .cta {
-        padding: 1rem;
+    #navmenu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bleu);
+        padding: 1.5rem;
+        gap: 1.5rem;
+        list-style: none;
+        z-index: 10;
     }
+    input:checked ~ #navmenu {display: flex;}
+    input:checked ~ .burger span:nth-child(1) {transform: translateY(9px) rotate(45deg);}
+    input:checked ~ .burger span:nth-child(2) {opacity: 0;}
+    input:checked ~ .burger span:nth-child(3) {transform: translateY(-9px) rotate(-45deg);}
+    #hero {height: auto;}
+    .cta {padding: 1rem;}
     /* Contenu */
     #sommaire ul {
         flex-direction: column;
@@ -426,4 +453,41 @@ figure a:hover img, figure img:hover {
     footer nav svg, #arrow{
         height: 4rem ;
     }
+}
+/* HOOVER */
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.2rem 1.5rem rgba(139,69,19,0.4); 
+  background:linear-gradient(45deg, var(--marron), #a0522d);
+}
+header nav ul li a:hover {
+    color: var(--orange);
+    transform: scale(1.02);
+}
+#contenutxt:hover {
+    background-color: var(--bleu);
+    color: var(--blanc);
+    border-radius: 2.5rem ;
+    padding: 1.5rem;
+}
+figure a:hover img, figure img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+#sommaire ul a:hover{
+    background-color: var(--bleu);
+    color: var(--blanc);
+    font-weight: 600;
+    transform: scale(1.02);
+}
+.langswitch button:hover {
+    opacity: 0.5;
+}
+#liensfooter a:hover {
+    transform: translateX(4px) scale(1.02);
+    color: var(--menthe) !important;
+    opacity: 1;
+}
+footer svg:hover path {
+  fill: var(--menthe) !important;
 }
