@@ -31,7 +31,7 @@ p, a, figcaption, strong, li {
 .cta {
     text-decoration: none ;
     display: inline-block;
-    padding: 15px;
+    padding: 1.5rem;
     text-align: center;
     color: white;
     background-color: var(--marron);
@@ -52,9 +52,7 @@ p, a, figcaption, strong, li {
   white-space: nowrap;
 }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html {scroll-behavior: auto;}
 }
 /* HEADER */
 header {
@@ -81,8 +79,8 @@ h2 a {
     font-weight: 800;
 }
 #conteneur {
-    width: 120px;
-    height: 120px;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -90,7 +88,6 @@ h2 a {
     width: 120%;
     height: 110%;
     object-fit: cover;
-    overflow: hidden;
 }
 header nav {
     display: flex;
@@ -128,9 +125,7 @@ header nav ul li a {
     cursor: pointer;
     transition: opacity 0.3s ease;
 }
-button .boutonactif {
-    opacity: 1;
-}
+button.boutonactif {opacity: 1;}
 /* On passe au hero */
 #hero {
     height: 40rem;
@@ -159,9 +154,7 @@ button .boutonactif {
   padding: 2rem;
   border-radius: 1rem;
 }
-#hero h1 {
-    margin-bottom: 1rem;
-}
+#hero h1 {margin-bottom: 1rem;}
 /* SECTION 01 - PARCOURS EN BREF */
 #parcours {
     display: flex;
@@ -170,9 +163,7 @@ button .boutonactif {
     gap: 5rem;
     margin: 3.5rem;
 } 
-#parcours h2 {
-    margin: 1.5rem 0 ;
-}
+#parcours h2 {margin: 1.5rem 0 ;}
 #colonne01 {
     width: 65rem;
     margin-right: 1.5rem;
@@ -186,21 +177,20 @@ button .boutonactif {
     display: flex;
     flex-direction: column;
     justify-content: center ;
-    align-content: center;
+    align-items: center;
 }
 #conteneurimg {
     width: 45rem;  
     height: 45rem;
     border-radius: 3.6rem; 
-    overflow: hidden;
     margin-bottom: 3rem;
+    overflow: hidden;
 }
 #conteneurimg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 40% 25% ;
-    overflow: hidden;
 }
 /* SECTION 02 - QUAND JE NE SUIS PAS EN TRAIN DE DESIGNER */
 #hobby {
@@ -209,12 +199,8 @@ button .boutonactif {
     flex-direction: column;
     align-items: center;
 }
-#hobby h2 {
-    margin: 2rem 0 ;
-}
-#activites h3 {
-    margin: 2rem 0 ;
-}
+#hobby h2 {margin: 2rem 0 ;}
+#activites h3 {margin: 2rem 0 ;}
 #activites {
     display: flex;
     flex-direction: row ;
@@ -228,9 +214,7 @@ button .boutonactif {
     width: 90%;
     max-width: 40rem;
 }
-#hobby > p {
-    font-style: italic;
-}
+#hobby > p {font-style: italic;}
 /* FOOTER */
 footer {
     margin-top: 3rem;
@@ -273,15 +257,11 @@ footer #mail path {
     display: flex;
     align-items: center;
 }
-footer #arrow path {
-    fill: white;
-}
+footer #arrow path {fill: white;}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
     /* HEADER */
-    header {
-        height: auto ;
-    }
+    header {height: auto ;}
     .wrapperheader {
     flex-direction: row;
     align-items: center;
@@ -292,7 +272,6 @@ footer #arrow path {
     width: 9rem;
     height: 9rem;
     border-radius: 50%;
-    overflow: hidden;
     margin-bottom: 1.5rem;
     }
     .navcontrol {
@@ -314,7 +293,6 @@ footer #arrow path {
         display: block;
         height: 0.3rem;
         background-color: white;
-        border: 0.5rem;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
     #navmenu {
@@ -335,15 +313,12 @@ footer #arrow path {
     input:checked ~ .burger span:nth-child(1) {transform: translateY(9px) rotate(45deg);}
     input:checked ~ .burger span:nth-child(2) {opacity: 0;}
     input:checked ~ .burger span:nth-child(3) {transform: translateY(-9px) rotate(-45deg);}
-    #hero {
-        height: auto;
-    }
-    .cta {
-        padding: 1rem;
-    }
+    #hero {height: auto;}
+    .cta {padding: 1rem;}
+    .wrapper{padding: 0 2rem;}
     /* PARCOURS */
-    main, section, div, p {
-        max-width: 100vw; 
+    main, section {
+        max-width: 100%; 
         box-sizing: border-box;
     }
     #parcours {
@@ -351,14 +326,10 @@ footer #arrow path {
         flex-direction: column;
         align-items: center;
     }
-    #conteneurimg {
-        display: none; }
-    #contenutxt, #titre h2 {
-        margin: 0 1.5rem;
-    }
+    #conteneurimg {display: none; }
     #contenutxt {
-        text-align: center;
-        margin-bottom: 1rem;
+        text-align: left;
+        margin: 1.5rem 0 1rem 0;
     }
     #activites {
         flex-direction: column; 
@@ -374,28 +345,18 @@ footer #arrow path {
         font-style: italic;
         padding: 0 1rem;
     }
-    #hobby > h2 {
-        text-align: center;
-    }
+    #hobby > h2 {text-align: center;}
     /* FOOTER */
-    footer {
-        height: auto;
-    }
+    footer {height: auto;}
     #wrapperfooter {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-    #liensfooter {
-        align-items: center;
-    }
-    footer nav {
-        gap: 2rem;
-    }
-    footer nav svg, #arrow{
-        height: 4rem ;
-    }
+    #liensfooter {align-items: center;}
+    footer nav {gap: 2rem;}
+    footer nav svg, #arrow{height: 4rem ;}
 }
 /* HOOVER */
 .cta:hover {
@@ -407,14 +368,10 @@ header nav ul li a:hover {
     color: var(--orange);
     transform: scale(1.02);
 }
-.langswitch button:hover {
-    opacity: 0.5;
-}
+.langswitch button:hover {opacity: 0.5;}
 #liensfooter a:hover {
     transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
+    color: var(--menthe);
     opacity: 1;
 }
-footer svg:hover path {
-  fill: var(--menthe) !important;
-}
+footer svg:hover path {fill: var(--menthe);}
