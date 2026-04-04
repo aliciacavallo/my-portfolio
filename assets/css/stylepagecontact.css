@@ -15,9 +15,8 @@ h1 {
 h2 {
     font-size: clamp(2.6rem, 2.24rem + 1.14vw, 3.6rem);
     line-height: 1.2;
-    margin-bottom: 2rem ;
     color : var(--bleu);
-    margin: 1.5rem;
+    margin: 1.5rem 0 2rem 0;
 }
 h3 {
   font-size: clamp(2.2rem, 1.98rem + 0.68vw, 2.8rem);
@@ -32,7 +31,7 @@ p, a, figcaption, strong, li {
 .cta {
     text-decoration: none ;
     display: inline-block;
-    padding: 15px;
+    padding: 1.5rem;
     text-align: center;
     color: white;
     background-color: var(--marron);
@@ -53,17 +52,13 @@ p, a, figcaption, strong, li {
   white-space: nowrap;
 }
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html {scroll-behavior: auto;}
 }
 .wrapper {
     max-width: 1170px;
     margin: auto;
 }
-img {
-    max-height: 500px;
-}
+img {max-height: 50rem;}
 /* HEADER */
 header {
     position: relative;
@@ -89,8 +84,8 @@ h2 a {
     font-weight: 800;
 }
 #conteneur {
-    width: 120px;
-    height: 120px;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -98,7 +93,6 @@ h2 a {
     width: 120%;
     height: 110%;
     object-fit: cover;
-    overflow: hidden;
 }
 header nav {
     display: flex;
@@ -136,9 +130,7 @@ header nav ul li a {
     cursor: pointer;
     transition: opacity 0.3s ease;
 }
-button .boutonactif {
-    opacity: 1;
-}
+button.boutonactif {opacity: 1;}
 /* On passe au hero */
 #hero {
     height: 40rem;
@@ -167,21 +159,15 @@ button .boutonactif {
   padding: 2rem;
   border-radius: 1rem;
 }
-#hero h1 {
-    margin-bottom: 1rem;
-}
+#hero h1 {margin-bottom: 1rem;}
 /* Mail */
-.at::before {
-    content: 'aliciacavallo.pro'
-}
-.at::after {
-    content: 'gmail.com';
-}
+.at::before {content: 'aliciacavallo.pro'}
+.at::after {content: 'gmail.com';}
 #email {
     max-width: 86rem;
     margin: 0 auto 2.5rem auto;
     text-align: center;
-    border: 2px solid var(--jaune);
+    border: 0.2rem solid var(--jaune);
     border-radius: 2.5rem;
     padding: 1rem 2rem;
     margin-bottom: 2.5rem; 
@@ -197,22 +183,22 @@ button .boutonactif {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 /* GROUPE DE CTA */
 .groupecta {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 20px 0 ;
+    margin: 2rem 0 ;
 }
 /* FOOTER */
 footer {
-    margin-top: 30px;
-    height: 150px;
-    background-color: var(--bleu);
-    padding: 30px;
+    margin-top: 3rem;
+    height: 15rem ;
+    background-color : var(--bleu);
+    padding: 3rem;
 }
 #wrapperfooter {
     max-width: 1170px;
@@ -231,7 +217,7 @@ footer nav {
     align-items: center;
 }
 footer nav svg {
-    height: 50px;
+    height: 5rem;
     transition: all 0.3s ease;
 }
 #liensfooter a {
@@ -245,18 +231,14 @@ footer #mail path {
   transition: fill 0.3s ease;
 }
 #arrow {
-    height: 50px;
+    height: 5rem;
     display: flex;
     align-items: center;
 }
-footer #arrow path {
-    fill: white;
-}
+footer #arrow path {fill: white;}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
-    header {
-        height: auto ;
-    }
+    header {height: auto ;}
     .wrapperheader {
     flex-direction: row;
     align-items: center;
@@ -289,7 +271,6 @@ footer #arrow path {
         display: block;
         height: 0.3rem;
         background-color: white;
-        border: 0.5rem;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
     #navmenu {
@@ -310,15 +291,8 @@ footer #arrow path {
     input:checked ~ .burger span:nth-child(1) {transform: translateY(9px) rotate(45deg);}
     input:checked ~ .burger span:nth-child(2) {opacity: 0;}
     input:checked ~ .burger span:nth-child(3) {transform: translateY(-9px) rotate(-45deg);}
-    #hero {
-        height: auto;
-    }
-    #hero {
-        height: auto;
-    }
-    .cta {
-        padding: 1rem;
-    }
+    #hero {height: auto;}
+    .cta {padding: 1rem;}
     /* CONTENU */
     #email, .wrapper {
         max-width: 30rem;
@@ -335,55 +309,38 @@ footer #arrow path {
         flex-direction: column;
         align-items: center;
     }
-    .groupecta .cta {
-        display: block;
-        
-    }
+    .groupecta .cta {display: block;}
     /* FOOTER */
-    footer {
-        height: auto;
-    }
+    footer {height: auto;}
     #wrapperfooter {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-    #liensfooter {
-        align-items: center;
-    }
-    footer nav {
-        gap: 2rem;
-    }
-    footer nav svg, #arrow{
-        height: 4rem ;
-    }
+    #liensfooter {align-items: center;}
+    footer nav {gap: 2rem;}
+    footer nav svg, #arrow{height: 4rem ;}
 }
 /* HOOVER */
 .cta:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 15px rgba(139,69,19,0.4); 
+  box-shadow: 0 1.2rem 1.5rem rgba(139,69,19,0.4); 
   background:linear-gradient(45deg, var(--marron), #a0522d);
 }
 header nav ul li a:hover {
     color: var(--orange);
     transform: scale(1.02);
 }
-.langswitch button:hover {
-    opacity: 0.5;
-}
+.langswitch button:hover {opacity: 0.5;}
 #liensfooter a:hover {
     transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
+    color: var(--menthe);
     opacity: 1;
 }
-footer svg:hover path {
-  fill: var(--menthe) !important;
-}
+footer svg:hover path {fill: var(--menthe);}
 #sommaire ul li a:hover{
     font-weight: 700;
     color: var(--marron);
 }
-#listereseaux svg:hover path{
-    fill: var(--jaune) !important;
-}
+#listereseaux svg:hover path{fill: var(--jaune) !important;}
