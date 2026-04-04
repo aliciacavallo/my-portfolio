@@ -40,9 +40,7 @@ p, a, figcaption {
   white-space: nowrap;
 }
 @media (prefers-reduced-motion: reduce){
-  html {
-    scroll-behavior: auto;
-  }
+  html {scroll-behavior: auto;}
 }
 /* HEADER */
 header {
@@ -69,8 +67,8 @@ h2 a {
     font-weight: 800;
 }
 #conteneur {
-    width: 120px;
-    height: 120px;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -78,7 +76,6 @@ h2 a {
     width: 120%;
     height: 110%;
     object-fit: cover;
-    overflow: hidden;
 }
 header nav {
     display: flex;
@@ -116,9 +113,7 @@ header nav ul li a {
     cursor: pointer;
     transition: opacity 0.3s ease;
 }
-button .boutonactif {
-    opacity: 1;
-}
+button.boutonactif {opacity: 1;}
 /* On passe au hero */
 #hero {
     height: 40rem;
@@ -147,9 +142,7 @@ button .boutonactif {
   padding: 2rem;
   border-radius: 1rem;
 }
-#hero h1 {
-    margin-bottom: 1rem;
-}
+#hero h1 {margin-bottom: 1rem;}
 /* Coin des annonces */
 #coindesannonces {
     padding: 1.5rem;
@@ -173,12 +166,10 @@ button .boutonactif {
     margin-top: 1.5rem;
     text-align: center;
 }
-#annonce1 p, #annonce2 p {
-    margin: 1.5rem 0 ;
-}
+#annonce1 p, #annonce2 p {margin: 1.5rem 0 ;}
 .annonce {
     flex: 1;
-    border: 2px solid var(--jaune);
+    border: 0.2rem solid var(--jaune);
     border-radius: 2.5rem;
     text-align: center;
     padding: 1rem 2rem;
@@ -201,14 +192,11 @@ button .boutonactif {
 }
 #sectionapropos h2 {
     text-align: center;
-    text-decoration: none;
     margin: 1.5rem;
     text-decoration: none;
     color: var(--blanc);
 }
-.texte-mobile {
-    display: none;
-}
+.texte-mobile {display: none;}
 .wrapper {
     max-width: 1170px;
     margin: auto;
@@ -220,9 +208,7 @@ button .boutonactif {
     gap: 1.5rem;
     color: var(--blanc);
 }
-#colonne1 p {
-    margin: 1.5rem;
-}
+#colonne1 p {margin: 1.5rem;}
 #colonne2 {
     width: 50rem;
     height: 24rem;
@@ -270,9 +256,7 @@ button .boutonactif {
     display: inline-block;
     margin-bottom: 3rem;
 }
-#galerie figcaption {
-    margin-top: 1.5rem;
-}
+#galerie figcaption {margin-top: 1.5rem;}
 /* FOOTER */
 footer {
     height: 15rem;
@@ -314,15 +298,11 @@ footer #mail path {
     display: flex;
     align-items: center;
 }
-footer #arrow path {
-    fill: white;
-}
+footer #arrow path {fill: white;}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
     /* HEADER */
-    header {
-        height: auto ;
-    }
+    header {height: auto ;}
     .wrapperheader {
     flex-direction: row;
     align-items: center;
@@ -355,7 +335,6 @@ footer #arrow path {
         display: block;
         height: 0.3rem;
         background-color: white;
-        border: 0.5rem;
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
     #navmenu {
@@ -399,31 +378,19 @@ footer #arrow path {
         height: 20rem;
         border-radius: 50%;
     }
-    .texte-pc {
-        display: none;
-    }
-    .texte-mobile {
-        display: inline;
-    }
+    .texte-pc {display: none;}
+    .texte-mobile {display: inline;}
     /* FOOTER */
-    footer {
-        height: auto;
-    }
+    footer {height: auto;}
     #wrapperfooter {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-    #liensfooter {
-        align-items: center;
-    }
-    footer nav {
-        gap: 2rem;
-    }
-    footer nav svg, #arrow{
-        height: 4rem ;
-    }
+    #liensfooter {align-items: center;}
+    footer nav {gap: 2rem;}
+    footer nav svg, #arrow{height: 4rem ;}
 }
 /* HOOVER */
 .cta:hover {
@@ -435,17 +402,13 @@ header nav ul li a:hover {
     color: var(--orange);
     transform: scale(1.02);
 }
-.langswitch button:hover {
-    opacity: 0.5;
-}
+.langswitch button:hover {opacity: 0.5;}
 #liensfooter a:hover {
     transform: translateX(4px) scale(1.02);
-    color: var(--menthe) !important;
+    color: var(--menthe);
     opacity: 1;
 }
-footer svg:hover path {
-  fill: var(--menthe) !important;
-}
+footer svg:hover path {fill: var(--menthe);}
 .annonce:hover {
     padding: 2rem 3rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
