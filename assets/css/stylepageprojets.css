@@ -377,7 +377,6 @@ footer #arrow path {fill: white;}
         flex-direction: column;
         align-items: center;
     }
-}
     .wrapper figure {
         width: 80%; 
         max-width: 30rem; 
@@ -439,6 +438,7 @@ footer #arrow path {fill: white;}
     footer nav {gap: 2rem;}
     footer nav svg, #arrow{height: 4rem ;
     }
+}
 /* HOOVER */
 .cta:hover {
   transform: translateY(-4px);
