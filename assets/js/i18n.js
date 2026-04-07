@@ -19,7 +19,7 @@ const translations = {
         aproposTitre:    "À propos",
         aproposTextePC:  "Sur votre droite,",
         aproposTexteMobile: "En bas,",
-        aproposTexte:    "une photo de moi garantie 100% sans IA. Ci-dessous un petit bouton si vous voulez en savoir plus sur ma personne : mes passions, mes engagements...",
+        aproposTexte:    "Une photo de moi garantie 100% sans IA. Ci-dessous un petit bouton si vous voulez en savoir plus sur ma personne : mes passions, mes engagements...",
         aproposCta1:     "En apprendre plus",
         aproposCta2:     "Direction les projets !",
         // les projets
