@@ -315,7 +315,6 @@ footer #arrow path {fill: white;}
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5rem;
     }
     #conteneur {
     width: 9rem;
@@ -370,6 +369,15 @@ footer #arrow path {fill: white;}
         flex-direction: column;
         text-align: center;
     }
+    #illustrator,
+    #photoshop,
+    #exercicehtml,
+    #exercicecss {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
     .wrapper figure {
         width: 80%; 
         max-width: 30rem; 
@@ -431,7 +439,6 @@ footer #arrow path {fill: white;}
     footer nav {gap: 2rem;}
     footer nav svg, #arrow{height: 4rem ;
     }
-}
 /* HOOVER */
 .cta:hover {
   transform: translateY(-4px);
@@ -447,10 +454,6 @@ header nav ul li a:hover {
     color: var(--blanc);
     border-radius: 2.5rem ;
     padding: 1.5rem;
-}
-figure a:hover img, figure img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 #sommaire ul a:hover{
     background-color: var(--bleu);
