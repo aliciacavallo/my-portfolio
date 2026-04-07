@@ -1,4 +1,7 @@
 /* GENERAL */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
@@ -8,6 +11,10 @@ body {
     background-color: var(--blanc);
     color: var(--bleu);
 }
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
 h1 {
     font-size: clamp(3.2rem, 2.6rem + 1.8vw, 4.8rem);
     color: var(--orange);
@@ -15,8 +22,8 @@ h1 {
 h2 {
     font-size: clamp(2.6rem, 2.24rem + 1.14vw, 3.6rem);
     line-height: 1.2;
-    margin-bottom: 2rem ;
     color : var(--bleu);
+    margin: 1.5rem 0 2rem 0;
 }
 h3 {
   font-size: clamp(2.2rem, 1.98rem + 0.68vw, 2.8rem);
@@ -53,6 +60,10 @@ p, a, figcaption, strong, li {
 }
 @media (prefers-reduced-motion: reduce) {
   html {scroll-behavior: auto;}
+}
+.wrapper {
+    max-width: 1170px;
+    margin: auto;
 }
 /* HEADER */
 header {
@@ -163,7 +174,6 @@ button.boutonactif {opacity: 1;}
     gap: 5rem;
     margin: 3.5rem;
 } 
-#parcours h2 {margin: 1.5rem 0 ;}
 #colonne01 {
     width: 65rem;
     margin-right: 1.5rem;
@@ -260,18 +270,17 @@ footer #mail path {
 footer #arrow path {fill: white;}
 /* MEDIA QUERY : 640PX */
 @media screen and (max-width: 640px) {
-    /* HEADER */
     header {height: auto ;}
     .wrapperheader {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5rem;
     }
     #conteneur {
     width: 9rem;
     height: 9rem;
     border-radius: 50%;
+    overflow: hidden;
     margin-bottom: 1.5rem;
     }
     .navcontrol {
@@ -315,21 +324,22 @@ footer #arrow path {fill: white;}
     input:checked ~ .burger span:nth-child(3) {transform: translateY(-9px) rotate(-45deg);}
     #hero {height: auto;}
     .cta {padding: 1rem;}
-    .wrapper{padding: 0 2rem;}
     /* PARCOURS */
-    main, section {
-        max-width: 100%; 
-        box-sizing: border-box;
-    }
+    main {max-width: 100%;}
     #parcours {
-        display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 3.5rem 0;
+        width: 100%;
     }
+    #parcours h2 {padding: 0 3rem;}
     #conteneurimg {display: none; }
     #contenutxt {
+        margin: 0 3rem;
         text-align: left;
-        margin: 1.5rem 0 1rem 0;
+    }
+    #colonne01 {
+        width: 100%;
     }
     #activites {
         flex-direction: column; 
@@ -342,7 +352,6 @@ footer #arrow path {fill: white;}
     #hobby > p {
         margin-top: 3rem;
         text-align: center;
-        font-style: italic;
         padding: 0 1rem;
     }
     #hobby > h2 {text-align: center;}
@@ -358,7 +367,7 @@ footer #arrow path {fill: white;}
     footer nav {gap: 2rem;}
     footer nav svg, #arrow{height: 4rem ;}
 }
-/* HOOVER */
+/* HOVER */
 .cta:hover {
   transform: translateY(-4px);
   box-shadow: 0 1.2rem 1.5rem rgba(139,69,19,0.4); 
