@@ -1,14 +1,10 @@
 # Book en UI et webdesign - Alicia CAVALLO 
 
-## UI et webdesigner Junior
-Voici mon book ! Il regroupe mes différents projets. <br>
-Je suis dans le sud de la France, en Occitanie.
+## UI et webdesigner 
+Voici mon book qui regroupe différents projets : illustrations vectorielles, montages photos, édition sur Indesign, code, maquettes et intégration de site web. <br>
 
 ## Actuellement 
-Je suis en recherche de stage d'une durée de 2 mois : du 27 mai au 21 juillet 2026.
+J'ai validé mon titre professionnel de "Concepteur designer UI". Je suis à la recherche d'un poste en UI design et/ou webdesign. <br>
+En parallèle, je retravaille mon book, apprends le JS et les ARIA labels. 
 
-## Fabriqué avec
-Mon cerveau, mes connaissances acquises au cours de la formation et beaucoup de tests.
-
-
-[Arbre à lien](https://www.karde.me/aliciacavallo) | [LinkedIn](www.linkedin.com/in/alicia-cavallo) | [Instagram](https://www.instagram.com/alicia._.cavallo/)
+[Karde](https://www.karde.me/aliciacavallo) | [LinkedIn](www.linkedin.com/in/alicia-cavallo) | [Instagram](https://www.instagram.com/alicia._.cavallo/)
