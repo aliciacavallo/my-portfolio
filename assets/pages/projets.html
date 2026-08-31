@@ -125,18 +125,39 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 .cat-intro p{ margin-top:10px; color:var(--ink-soft); }
 .cat-intro h3{ font-size:1.15rem; margin:24px 0 14px; color:var(--coral-deep); }
 
-.galerie{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
-.galerie figure{ background:var(--card); border-radius:var(--radius-md); overflow:hidden; box-shadow:0 14px 30px rgba(59,34,22,.07); }
-.galerie figure img, .galerie figure video{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+/* galerie — version épurée : plus de grande carte blanche derrière chaque image */
+.galerie{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:28px; }
+.galerie figure{ background:none; box-shadow:none; }
+.galerie figure img, .galerie figure video{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border-radius:var(--radius-md); }
+.galerie figure img{ cursor:pointer; transition:transform .2s ease, opacity .2s ease; }
+.galerie figure img:hover{ transform:scale(1.015); opacity:.93; }
 .galerie figure video{ object-fit:contain; background:#000; }
-.galerie figcaption{ padding:14px 16px 18px; font-size:.9rem; color:var(--ink-soft); }
-.galerie .groupeimg{ display:grid; grid-template-columns:1fr 1fr; }
+.galerie figcaption{ padding:10px 2px 0; font-size:.88rem; color:var(--ink-soft); }
+.galerie .groupeimg{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }
 .galerie .groupeimg img{ aspect-ratio:1/1; }
 .galerie.compact figure img{ aspect-ratio:1/1; }
 
 .retour-top{ margin-top:36px; text-align:center; }
 .retour-top a{ font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); font-weight:700; }
 .retour-top a:hover{ color:var(--coral-deep); }
+
+/* lightbox — pour cliquer sur une image du projet et défiler parmi toutes les images */
+.lightbox{ position:fixed; inset:0; background:rgba(59,34,22,.92); z-index:2000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .25s ease; }
+.lightbox.open{ opacity:1; pointer-events:auto; }
+.lightbox-inner{ position:relative; max-width:88vw; max-height:84vh; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.lightbox-inner img{ max-width:88vw; max-height:74vh; object-fit:contain; border-radius:18px; box-shadow:0 30px 70px rgba(0,0,0,.45); cursor:default; }
+.lightbox-inner figcaption{ color:#fff; font-family:var(--body); font-size:.95rem; text-align:center; max-width:70vw; padding:0; }
+.lb-close{ position:absolute; top:-44px; right:0; background:none; border:none; color:#fff; font-size:2rem; line-height:1; cursor:pointer; }
+.lb-close:hover{ color:var(--coral-soft); }
+.lb-nav{ position:fixed; top:50%; transform:translateY(-50%); background:rgba(255,244,236,.14); border:none; color:#fff; width:52px; height:52px; border-radius:50%; font-size:1.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s ease; z-index:2001; }
+.lb-nav:hover{ background:rgba(255,244,236,.28); }
+.lb-prev{ left:24px; }
+.lb-next{ right:24px; }
+@media (max-width:700px){
+  .lb-nav{ width:42px; height:42px; font-size:1.3rem; }
+  .lb-prev{ left:8px; }
+  .lb-next{ right:8px; }
+}
 
 </style>
 </head>
@@ -170,7 +191,7 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
         <li><a href="#logo">Défis logo &amp; branding</a></li>
         <li><a href="#web">HTML / CSS</a></li>
         <li><a href="#maquettes">Maquettes Figma</a></li>
-        <li><a href="#webdesign"></a>Webdesign</li>
+        <li><a href="#webdesign">Webdesign</a></li>
       </ul>
     </div>
   </div>
@@ -303,6 +324,18 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
     <div class="copy">© 2026 Alicia Cavallo — Designer UI &amp; Dev Front</div>
   </div>
 </footer>
+
+<!-- Lightbox : ouverte au clic sur une image de projet, navigation avec les flèches ou le clavier -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-nav lb-prev" aria-label="Image précédente">&#8249;</button>
+  <div class="lightbox-inner">
+    <button class="lb-close" aria-label="Fermer">&times;</button>
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </div>
+  <button class="lb-nav lb-next" aria-label="Image suivante">&#8250;</button>
+</div>
+
 <script>
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
@@ -311,6 +344,42 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+
+  // Lightbox : toutes les images des galeries de projets deviennent cliquables et défilables
+  (function(){
+    const imgs = Array.from(document.querySelectorAll('.galerie img'));
+    if(!imgs.length) return;
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('figcaption');
+    let current = 0;
+
+    function show(i){
+      current = (i + imgs.length) % imgs.length;
+      const el = imgs[current];
+      lbImg.src = el.getAttribute('src');
+      lbImg.alt = el.getAttribute('alt') || '';
+      lbCap.textContent = el.getAttribute('alt') || '';
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function close(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+    }
+
+    imgs.forEach((img, i) => img.addEventListener('click', () => show(i)));
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-prev').addEventListener('click', () => show(current - 1));
+    lb.querySelector('.lb-next').addEventListener('click', () => show(current + 1));
+    lb.addEventListener('click', (e) => { if(e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if(!lb.classList.contains('open')) return;
+      if(e.key === 'Escape') close();
+      if(e.key === 'ArrowRight') show(current + 1);
+      if(e.key === 'ArrowLeft') show(current - 1);
+    });
+  })();
 </script>
 </body>
 </html>
