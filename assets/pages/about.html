@@ -69,7 +69,6 @@ nav.wrap{ display:flex; align-items:center; justify-content:space-between; paddi
 .navlinks a.active{ color:var(--coral-deep); }
 a:focus-visible, button:focus-visible{ outline:3px solid var(--teal); outline-offset:3px; border-radius:4px; }
 .nav-toggle{ display:none; }
-.burger{ display:none; }
 
 /* boutons */
 .btn{ font-family:var(--body); font-weight:600; font-size:.94rem; padding:13px 24px; border-radius:999px; border:2px solid transparent; display:inline-flex; align-items:center; gap:8px; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
@@ -138,25 +137,85 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 
 @media (max-width:900px){ .about-layout{ grid-template-columns:1fr; } .about-photo{ order:-1; max-width:320px; margin:0 auto; } }
 
+
+/* ============================================================
+   BURGER MENU MOBILE
+   ============================================================ */
+.burger{
+  display:none; position:relative; z-index:960;
+  flex-direction:column; justify-content:space-between;
+  width:28px; height:20px; background:none; border:none; padding:0; cursor:pointer;
+}
+.burger span{ display:block; width:100%; height:2.5px; border-radius:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease; }
+.burger.open span:nth-child(1){ transform:translateY(8.5px) rotate(45deg); }
+.burger.open span:nth-child(2){ opacity:0; }
+.burger.open span:nth-child(3){ transform:translateY(-8.5px) rotate(-45deg); }
+
+.mobile-menu-overlay{
+  position:fixed; inset:0; background:rgba(59,34,22,.55); z-index:900;
+  opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.mobile-menu-overlay.open{ opacity:1; pointer-events:auto; }
+
+.mobile-menu{
+  position:fixed; top:0; right:0; height:100%; width:min(78vw, 320px);
+  background:var(--bg); z-index:950; box-shadow:-14px 0 40px rgba(59,34,22,.18);
+  transform:translateX(100%); transition:transform .3s ease;
+  display:flex; flex-direction:column; gap:26px; padding:84px 34px 40px;
+}
+.mobile-menu.open{ transform:translateX(0); }
+.mobile-menu a{ font-family:var(--display); font-size:1.3rem; font-weight:600; color:var(--ink); padding:4px 0; }
+.mobile-menu a.active{ color:var(--coral-deep); }
+.mobile-menu-close{
+  position:absolute; top:22px; right:22px; background:none; border:none;
+  font-size:1.9rem; line-height:1; color:var(--ink); cursor:pointer;
+}
+.mobile-menu-close:hover{ color:var(--coral-deep); }
+
+@media (max-width:900px){
+  .navlinks{ display:none; }
+  .burger{ display:flex; }
+}
+@media (min-width:901px){
+  .mobile-menu, .mobile-menu-overlay{ display:none; }
+}
+
+/* wrapper resserré sur petit mobile */
+@media (max-width:480px){
+  .wrap{ padding:0 20px; }
+}
+
 </style>
 </head>
 <body>
 <header>
   <nav class="wrap">
-    <a href="../../index.html" class="logo"><img src="../img/profil.webp" alt="Illustration d'Alicia Cavallo">Alicia Cavallo</a>
+    <a href="../../index.html" class="logo"><img src="../img/Photo-profil.webp" alt="Photo d'Alicia Cavallo">Alicia Cavallo</a>
     <div class="navlinks">
       <a href="../../index.html">Accueil</a>
       <a href="about.html" class="active">À propos</a>
       <a href="projets.html">Projets</a>
       <a href="contact.html">Contact</a>
     </div>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
+  <a href="../../index.html">Accueil</a>
+      <a href="about.html" class="active">À propos</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html">Contact</a>
+</nav>
+
 
 <section class="pagehero">
   <div class="wrap reveal">
     <span class="eyebrow">À propos &amp; parcours</span>
-    <h1>Mon parcours</h1>
+    <h1>Du droit au webdesign : un parcours guidé par la curiosité et la création.</h1>
   </div>
 </section>
 
@@ -164,13 +223,13 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
   <div class="wrap about-layout">
     <div class="about-photo reveal">
       <!-- ==== PHOTO À ACTUALISER : remplacer assets/img/Photo-profil.webp par une photo plus récente ==== -->
-      <img src="../img/profil.webp" alt="illustration d'Alicia Cavallo">
+      <img src="../img/Photo-profil.webp" alt="Photo d'Alicia Cavallo">
     </div>
     <div class="about-text reveal">
       <p class="lead-strong">J'ai longtemps perçu mon parcours non linéaire comme un cheminement sans logique — j'y vois aujourd'hui ma plus grande force.</p>
       <p>Droit, économie, marketing, décoration d'intérieur ou encore restauration... Ces expériences, aussi diverses soient-elles, m'ont permis de forger une vision à 360° et une approche unique de la résolution de problèmes.</p>
-      <p>Je suis désormais designer UI, webdesigner et développeuse front-end, avec un pied dans le design et l'autre dans le code.</p>
-      <p>Pour qu'un projet réponde à un maximum d'exigences, je suis prête à mettre la main à la pâte en UX design, pour les enquêtes utilisateur ou encore en intégration dans des CMS autres que Wordpress, etc.</p>
+      <p>Au fil de ce cheminement, une évidence s'est imposée : je m'épanouis dans la création. Qu'il s'agisse de dessiner, d'écrire ou de conceptualiser, j'ai besoin d'un environnement qui stimule autant ma réflexion que mon imaginaire.</p>
+      <p>C'est ce qui m'a naturellement menée vers le Design Thinking, le Webdesign et l'UI/UX — l'équilibre parfait entre réflexion stratégique et expression visuelle. Je m'intéresse aussi à l'accessibilité numérique : je pense que tout le monde a le droit d'accéder à l'information, et j'y vois une vraie richesse plutôt qu'une contrainte.</p>
       <a href="projets.html" class="btn btn-primary">Découvrir mes projets</a>
     </div>
   </div>
@@ -184,22 +243,20 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
-        <h4>Aujourd'hui - Designer UI & dev front</h4>
-          <p>À la recherche d'un poste en tant qu'UI designer et/ou webdesigner</p>
-          <p>Je continue, en parallèle, de développer mes compétences : JavaScript, projets de site web, défis logo, apprentissage des balises ARIA pour l'accessibilité</p>
-        </div>
-      <div class="tl-item reveal">
-        <h4>2025 à 2026 : Préparation du Titre professionnel "Concepteur Designer UI"</h4>
-        <p><span style="text-decoration: underline;">Formation à Objectif3W </span> - prise en main de la suite Adobe, apprentissage du HTML et CSS ainsi que de l'intégration Wordpress.</p>
-        <p><span style="text-decoration: underline;">Stage de 2 mois chez Aria Nova Sessions </span> - refonte d'un site web sur Wordpress.</p>
+        <h4>Droit, économie, marketing...</h4>
+        <p>Un parcours pluriel, entre études de droit, économie, marketing, décoration d'intérieur et restauration — une vision à 360° sur la résolution de problèmes.</p>
       </div>
       <div class="tl-item reveal">
-        <h4>2025 : Développement des premières compétences en UI design et en code</h4>
-        <p>MOOC sur <span style="text-decoration:underline;">Openclassroom</span> et préparation de mon book pour l'entrée en formation chez Objectif3W.</p>
+        <h4>Le déclic pour la création</h4>
+        <p>Dessiner, écrire, conceptualiser : la création s'impose comme le fil conducteur, et avec elle le besoin d'un environnement qui stimule autant la réflexion que l'imaginaire.</p>
       </div>
       <div class="tl-item reveal">
-        <h4>2024 - Création et développement d'une autoentreprise en décoration d'intérieur</h4>
-        <p>Définition des besoins de clients, réalisations de moodboards et de plans d'implantation ou encore gestion d'autoentreprise.</p>
+        <h4>Design Thinking, Webdesign, UI/UX</h4>
+        <p>Formation vers le webdesign et l'UI/UX — l'équilibre entre stratégie et expression visuelle.</p>
+      </div>
+      <div class="tl-item reveal">
+        <h4>Aujourd'hui — Objectif 3W</h4>
+        <p>Perfectionnement en webdesign et développement front-end. Créer des interfaces esthétiques qui ont surtout du sens pour l'utilisateur.</p>
       </div>
     </div>
   </div>
@@ -255,6 +312,36 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+</script>
+<script>
+  // Menu burger mobile : ouverture/fermeture, clic à côté, touche Échap
+  (function(){
+    const burger = document.getElementById('burgerBtn');
+    const overlay = document.getElementById('mobileOverlay');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileClose');
+    if(!burger || !menu || !overlay) return;
+
+    function openMenu(){
+      burger.classList.add('open'); burger.setAttribute('aria-expanded','true');
+      overlay.classList.add('open');
+      menu.classList.add('open'); menu.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      burger.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+      overlay.classList.remove('open');
+      menu.classList.remove('open'); menu.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu); // clic à côté, sur le fond assombri
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('blur', closeMenu); // sortie en dehors de la fenêtre
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  })();
 </script>
 </body>
 </html>
