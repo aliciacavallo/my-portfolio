@@ -109,27 +109,42 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
   .navlinks{ display:none; }
 }
 
+/* ============================================================
+   SECTION CONTACT — fond neutre (remplace l'ancien fond marron --ink)
+   ============================================================ */
+#contact-page{ background:var(--bg-alt); color:var(--ink); padding:90px 0 70px; }
+#contact-page .eyebrow{ color:var(--coral-deep); }
+#contact-page h1{ color:var(--ink); font-size:clamp(2.2rem,4.4vw,3.2rem); }
+#contact-page .lead{ color:var(--ink-soft); margin-top:14px; max-width:56ch; }
 
-#contact-page{ background:var(--ink); color:var(--bg); padding:90px 0 70px; }
-#contact-page .eyebrow{ color:var(--coral-soft); }
-#contact-page h1{ color:#fff; font-size:clamp(2.2rem,4.4vw,3.2rem); }
-#contact-page .lead{ color:rgba(255,244,236,.68); margin-top:14px; max-width:56ch; }
+/* mise en page centrée à une colonne, sans formulaire */
+.contact-layout{
+  display:flex; flex-direction:column; align-items:flex-start; gap:40px;
+  margin-top:50px; max-width:640px;
+}
 
-.contact-layout{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; margin-top:50px; }
-.contact-form{ display:flex; flex-direction:column; gap:18px; }
-.field{ display:flex; flex-direction:column; gap:8px; }
-.field label{ font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--coral-soft); }
-.field input, .field textarea{ background:rgba(255,244,236,.06); border:1.5px solid rgba(255,244,236,.2); border-radius:14px; padding:14px 16px; color:#fff; font-family:var(--body); font-size:.98rem; resize:vertical; }
-.field input::placeholder, .field textarea::placeholder{ color:rgba(255,244,236,.35); }
-.field input:focus, .field textarea:focus{ outline:2px solid var(--coral); border-color:var(--coral); }
+.contact-direct{ display:flex; flex-direction:column; gap:26px; width:100%; }
+.contact-direct a.mail{
+  font-family:var(--display); font-size:clamp(1.15rem, 3vw, 1.4rem); font-weight:600;
+  border-bottom:2px solid rgba(226,74,40,.3); padding-bottom:4px; width:fit-content;
+  color:var(--ink); word-break:break-word;
+}
+.contact-direct a.mail:hover{ border-color:var(--coral); color:var(--coral-deep); }
 
-.contact-direct{ display:flex; flex-direction:column; gap:22px; }
-.contact-direct a.mail{ font-family:var(--display); font-size:1.4rem; font-weight:600; border-bottom:2px solid rgba(255,107,71,.4); padding-bottom:4px; width:fit-content; }
-.contact-direct a.mail:hover{ border-color:var(--coral); color:var(--coral-soft); }
-.social{ display:flex; gap:18px; }
-.social a{ font-family:var(--mono); font-size:.85rem; color:rgba(255,244,236,.7); border-bottom:1px solid rgba(255,244,236,.25); }
-.social a:hover{ color:#fff; border-color:#fff; }
-.contact-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
+/* grille de liens réseaux/plateformes */
+.social-grid{
+  display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; width:100%;
+}
+.social-grid a{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  font-family:var(--mono); font-size:.85rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink); background:var(--card); border:1.5px solid rgba(59,34,22,.12);
+  border-radius:var(--radius-md); padding:16px 18px; transition:transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.social-grid a:hover{ transform:translateY(-3px); border-color:var(--coral); background:#fff; color:var(--coral-deep); }
+.social-grid a .arrow{ font-family:var(--body); font-weight:400; opacity:.5; }
+
+.contact-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; }
 
 
 /* ============================================================
@@ -174,135 +189,11 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
   .mobile-menu, .mobile-menu-overlay{ display:none; }
 }
 
-/* wrapper resserré sur petit mobile */
-@media (max-width:480px){
-  .wrap{ padding:0 20px; }
-}
-
-</style>
-</head>
-<body>
-<header>
-  <nav class="wrap">
-    <a href="../../index.html" class="logo"><img src="../img/profil.webp" alt="Illustration d'Alicia Cavallo">Alicia Cavallo</a>
-    <div class="navlinks">
-      <a href="../../index.html">Accueil</a>
-      <a href="about.html">À propos</a>
-      <a href="projets.html">Projets</a>
-      <a href="contact.html" class="active">Contact</a>
-    </div>
-    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
-<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
-<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
-  <a href="../../index.html">Accueil</a>
-      <a href="about.html">À propos</a>
-      <a href="projets.html">Projets</a>
-      <a href="contact.html" class="active">Contact</a>
-</nav>
-
-
-<section id="contact-page">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">Contact</span>
-      <h1>On travaille ensemble ?</h1>
-      <p class="lead">N'hésitez pas à consulter mes réseaux pour découvrir plus de projets, ou écrivez-moi directement.</p>
-    </div>
-
-    <div class="contact-layout">
-      <form class="contact-form reveal" id="contactForm">
-        <div class="field"><label for="name">Nom</label><input type="text" id="name" name="name" placeholder="Votre nom" required></div>
-        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="vous@exemple.com" required></div>
-        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea></div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Envoyer le message</button>
-      </form>
-
-      <div class="contact-direct reveal">
-        <!-- ==== ADRESSE MAIL À ACTUALISER ==== -->
-        <a class="mail" href="mailto:contact@example.com">contact@example.com</a>
-        <div class="social">
-          <a href="https://www.linkedin.com/in/alicia-cavallo/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.instagram.com/alicia._.cavallo/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-        <div class="contact-ctas">
-          <a href="projets.html" class="btn btn-ghost" style="border-color:rgba(255,244,236,.4);color:#fff;">Voir des réalisations</a>
-          <a href="about.html" class="btn btn-ghost" style="border-color:rgba(255,244,236,.4);color:#fff;">En savoir plus</a>
-          <a href="../../index.html" class="btn btn-ghost" style="border-color:rgba(255,244,236,.4);color:#fff;">Retour à l'accueil</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('Contact depuis le book — ' + name);
-    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-    window.location.href = 'mailto:contact@example.com?subject=' + subject + '&body=' + body;
-  });
-</script>
-
-<footer class="sitefooter">
-  <div class="wrap">
-    <div class="footlinks">
-      <a href="mentionslegales.html">Mentions légales</a>
-      <a href="copyrights.html">Copyrights</a>
-    </div>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/alicia-cavallo/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.instagram.com/alicia._.cavallo/" target="_blank" rel="noopener">Instagram</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="copy">© 2026 Alicia Cavallo — Designer UI &amp; Dev Front</div>
-  </div>
-</footer>
-<script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => io.observe(el));
-</script>
-<script>
-  // Menu burger mobile : ouverture/fermeture, clic à côté, touche Échap
-  (function(){
-    const burger = document.getElementById('burgerBtn');
-    const overlay = document.getElementById('mobileOverlay');
-    const menu = document.getElementById('mobileMenu');
-    const closeBtn = document.getElementById('mobileClose');
-    if(!burger || !menu || !overlay) return;
-
-    function openMenu(){
-      burger.classList.add('open'); burger.setAttribute('aria-expanded','true');
-      overlay.classList.add('open');
-      menu.classList.add('open'); menu.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu(){
-      burger.classList.remove('open'); burger.setAttribute('aria-expanded','false');
-      overlay.classList.remove('open');
-      menu.classList.remove('open'); menu.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    burger.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
-    closeBtn.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu); // clic à côté, sur le fond assombri
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
-    window.addEventListener('blur', closeMenu); // sortie en dehors de la fenêtre
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  })();
-</script>
-</body>
-</html>
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:600px){
+  #contact-page{ padding:64px 0 50px; }
+  .contact-layout{ gap:32px; }
+  .social-grid{ grid-template-columns:1fr; }
+  .contact-ctas{ 
