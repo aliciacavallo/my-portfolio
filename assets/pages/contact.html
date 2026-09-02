@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>À propos — Alicia Cavallo</title>
+<title>Contact — Alicia Cavallo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
@@ -56,7 +56,6 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.08; lett
 }
 .bubble.alt{ background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.95), rgba(255,255,255,0) 38%), linear-gradient(135deg, rgba(255,201,176,.8), rgba(255,107,71,.25)); }
 @keyframes drift{ 0%,100%{ transform:translateY(0) translateX(0) scale(1); } 50%{ transform:translateY(-18px) translateX(10px) scale(1.03); } }
-  
 
 /* nav */
 header{ position:sticky; top:0; z-index:500; backdrop-filter:blur(10px); background:rgba(255,244,236,.86); border-bottom:1px solid rgba(59,34,22,.08); }
@@ -109,64 +108,14 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 @media (max-width:900px){
   .navlinks{ display:none; }
 }
-@media (max-width:900px){ .about-layout{ grid-template-columns:1fr; } .about-photo{ order:-1; max-width:320px; margin:0 auto; } }
 
 
-/* ============================================================
-   BURGER MENU MOBILE
-   ============================================================ */
-.burger{
-  display:none; position:relative; z-index:960;
-  flex-direction:column; justify-content:space-between;
-  width:28px; height:20px; background:none; border:none; padding:0; cursor:pointer;
-}
-.burger span{ display:block; width:100%; height:2.5px; border-radius:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease; }
-.burger.open span:nth-child(1){ transform:translateY(8.5px) rotate(45deg); }
-.burger.open span:nth-child(2){ opacity:0; }
-.burger.open span:nth-child(3){ transform:translateY(-8.5px) rotate(-45deg); }
-
-.mobile-menu-overlay{
-  position:fixed; inset:0; background:rgba(59,34,22,.55); z-index:900;
-  opacity:0; pointer-events:none; transition:opacity .25s ease;
-}
-.mobile-menu-overlay.open{ opacity:1; pointer-events:auto; }
-
-.mobile-menu{
-  position:fixed; top:0; right:0; height:100%; width:min(78vw, 320px);
-  background:var(--bg); z-index:950; box-shadow:-14px 0 40px rgba(59,34,22,.18);
-  transform:translateX(100%); transition:transform .3s ease;
-  display:flex; flex-direction:column; gap:26px; padding:84px 34px 40px;
-}
-.mobile-menu.open{ transform:translateX(0); }
-.mobile-menu a{ font-family:var(--display); font-size:1.3rem; font-weight:600; color:var(--ink); padding:4px 0; }
-.mobile-menu a.active{ color:var(--coral-deep); }
-.mobile-menu-close{
-  position:absolute; top:22px; right:22px; background:none; border:none;
-  font-size:1.9rem; line-height:1; color:var(--ink); cursor:pointer;
-}
-.mobile-menu-close:hover{ color:var(--coral-deep); }
-
-@media (max-width:900px){
-  .navlinks{ display:none; }
-  .burger{ display:flex; }
-}
-@media (min-width:901px){
-  .mobile-menu, .mobile-menu-overlay{ display:none; }
-}
-
-/* wrapper resserré sur petit mobile */
-@media (max-width:480px){
-  .wrap{ padding:0 20px; }
-}
-
-/* ============================================================
-   SECTION CONTACT 
-   ============================================================ */
 #contact-page{ background:var(--bg-alt); color:var(--ink); padding:90px 0 70px; }
 #contact-page .eyebrow{ color:var(--coral-deep); }
 #contact-page h1{ color:var(--ink); font-size:clamp(2.2rem,4.4vw,3.2rem); }
 #contact-page .lead{ color:var(--ink-soft); margin-top:14px; max-width:56ch; }
 
+/* mise en page centrée à une colonne, sans formulaire */
 .contact-layout{
   display:flex; flex-direction:column; align-items:flex-start; gap:40px;
   margin-top:50px; max-width:640px;
@@ -180,7 +129,7 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 }
 .contact-direct a.mail:hover{ border-color:var(--coral); color:var(--coral-deep); }
 
-/* grille de liens réseaux */
+/* grille de liens réseaux/plateformes */
 .social-grid{
   display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; width:100%;
 }
@@ -238,11 +187,128 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
   .mobile-menu, .mobile-menu-overlay{ display:none; }
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width:600px){
-  #contact-page{ padding:64px 0 50px; }
-  .contact-layout{ gap:32px; }
-  .social-grid{ grid-template-columns:1fr; }
-  .contact-ctas{ 
+/* wrapper resserré sur petit mobile */
+@media (max-width:480px){
+  .wrap{ padding:0 20px; }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a href="../../index.html" class="logo"><img src="../img/profil.webp" alt="Illustration d'Alicia Cavallo">Alicia Cavallo</a>
+    <div class="navlinks">
+      <a href="../../index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
+  <a href="../../index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html" class="active">Contact</a>
+</nav>
+
+
+<section id="contact-page">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h1>On travaille ensemble ?</h1>
+      <p class="lead">N'hésitez pas à consulter mes réseaux pour découvrir plus de projets, ou écrivez-moi directement.</p>
+    </div>
+
+    <div class="contact-layout">
+      <form class="contact-form reveal" id="contactForm">
+        <div class="field"><label for="name">Nom</label><input type="text" id="name" name="name" placeholder="Votre nom" required></div>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="vous@exemple.com" required></div>
+        <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Envoyer le message</button>
+      </form>
+
+      <div class="contact-layout">
+      <div class="contact-direct reveal">
+        <a class="mail" href="mailto:&#97;&#108;&#105;&#99;&#105;&#97;&#99;&#97;&#118;&#97;&#108;&#108;&#111;&#46;&#112;&#114;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#97;&#108;&#105;&#99;&#105;&#97;&#99;&#97;&#118;&#97;&#108;&#108;&#111;&#46;&#112;&#114;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+
+        <div class="social-grid">
+          <a href="https://www.instagram.com/alicia._.cavallo/" target="_blank" rel="noopener">Instagram <span class="arrow">↗</span></a>
+          <a href="https://www.linkedin.com/in/alicia-cavallo/" target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          <a href="https://github.com/aliciacavallo" target="_blank" rel="noopener">Git <span class="arrow">↗</span></a>
+          <a href="https://www.karde.me/aliciacavallo" target="_blank" rel="noopener">Karde <span class="arrow">↗</span></a>
+        </div>
+
+        <div class="contact-ctas">
+          <a href="projets.html" class="btn btn-ghost">Voir des réalisations</a>
+          <a href="about.html" class="btn btn-ghost">En savoir plus</a>
+          <a href="../../index.html" class="btn btn-ghost">Retour à l'accueil</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<footer class="sitefooter">
+  <div class="wrap">
+    <div class="footlinks">
+      <a href="mentionslegales.html">Mentions légales</a>
+      <a href="copyrights.html">Copyrights</a>
+    </div>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/alicia-cavallo/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/alicia._.cavallo/" target="_blank" rel="noopener">Instagram</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="copy">© 2026 Alicia Cavallo — Designer UI &amp; Dev Front</div>
+  </div>
+</footer>
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+<script>
+  // Menu burger mobile : ouverture/fermeture, clic à côté, touche Échap
+  (function(){
+    const burger = document.getElementById('burgerBtn');
+    const overlay = document.getElementById('mobileOverlay');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileClose');
+    if(!burger || !menu || !overlay) return;
+
+    function openMenu(){
+      burger.classList.add('open'); burger.setAttribute('aria-expanded','true');
+      overlay.classList.add('open');
+      menu.classList.add('open'); menu.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      burger.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+      overlay.classList.remove('open');
+      menu.classList.remove('open'); menu.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu); // clic à côté, sur le fond assombri
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('blur', closeMenu); // sortie en dehors de la fenêtre
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  })();
+</script>
+</body>
+</html>
