@@ -69,7 +69,6 @@ nav.wrap{ display:flex; align-items:center; justify-content:space-between; paddi
 .navlinks a.active{ color:var(--coral-deep); }
 a:focus-visible, button:focus-visible{ outline:3px solid var(--teal); outline-offset:3px; border-radius:4px; }
 .nav-toggle{ display:none; }
-.burger{ display:none; }
 
 /* boutons */
 .btn{ font-family:var(--body); font-weight:600; font-size:.94rem; padding:13px 24px; border-radius:999px; border:2px solid transparent; display:inline-flex; align-items:center; gap:8px; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
@@ -132,20 +131,80 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 .social a:hover{ color:#fff; border-color:#fff; }
 .contact-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:10px; }
 
+
+/* ============================================================
+   BURGER MENU MOBILE
+   ============================================================ */
+.burger{
+  display:none; position:relative; z-index:960;
+  flex-direction:column; justify-content:space-between;
+  width:28px; height:20px; background:none; border:none; padding:0; cursor:pointer;
+}
+.burger span{ display:block; width:100%; height:2.5px; border-radius:2px; background:var(--ink); transition:transform .25s ease, opacity .25s ease; }
+.burger.open span:nth-child(1){ transform:translateY(8.5px) rotate(45deg); }
+.burger.open span:nth-child(2){ opacity:0; }
+.burger.open span:nth-child(3){ transform:translateY(-8.5px) rotate(-45deg); }
+
+.mobile-menu-overlay{
+  position:fixed; inset:0; background:rgba(59,34,22,.55); z-index:900;
+  opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.mobile-menu-overlay.open{ opacity:1; pointer-events:auto; }
+
+.mobile-menu{
+  position:fixed; top:0; right:0; height:100%; width:min(78vw, 320px);
+  background:var(--bg); z-index:950; box-shadow:-14px 0 40px rgba(59,34,22,.18);
+  transform:translateX(100%); transition:transform .3s ease;
+  display:flex; flex-direction:column; gap:26px; padding:84px 34px 40px;
+}
+.mobile-menu.open{ transform:translateX(0); }
+.mobile-menu a{ font-family:var(--display); font-size:1.3rem; font-weight:600; color:var(--ink); padding:4px 0; }
+.mobile-menu a.active{ color:var(--coral-deep); }
+.mobile-menu-close{
+  position:absolute; top:22px; right:22px; background:none; border:none;
+  font-size:1.9rem; line-height:1; color:var(--ink); cursor:pointer;
+}
+.mobile-menu-close:hover{ color:var(--coral-deep); }
+
+@media (max-width:900px){
+  .navlinks{ display:none; }
+  .burger{ display:flex; }
+}
+@media (min-width:901px){
+  .mobile-menu, .mobile-menu-overlay{ display:none; }
+}
+
+/* wrapper resserré sur petit mobile */
+@media (max-width:480px){
+  .wrap{ padding:0 20px; }
+}
+
 </style>
 </head>
 <body>
 <header>
   <nav class="wrap">
-    <a href="../../index.html" class="logo"><img src="../img/Photo-profil.webp" alt="Photo d'Alicia Cavallo">Alicia Cavallo</a>
+    <a href="../../index.html" class="logo"><img src="../img/profil.webp" alt="Illustration d'Alicia Cavallo">Alicia Cavallo</a>
     <div class="navlinks">
       <a href="../../index.html">Accueil</a>
       <a href="about.html">À propos</a>
       <a href="projets.html">Projets</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
+  <a href="../../index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="projets.html">Projets</a>
+      <a href="contact.html" class="active">Contact</a>
+</nav>
+
 
 <section id="contact-page">
   <div class="wrap">
@@ -153,7 +212,6 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
       <span class="eyebrow">Contact</span>
       <h1>On travaille ensemble ?</h1>
       <p class="lead">N'hésitez pas à consulter mes réseaux pour découvrir plus de projets, ou écrivez-moi directement.</p>
-      <p> formulaire non fonctionnel pour le moment</p>
     </div>
 
     <div class="contact-layout">
@@ -215,6 +273,36 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
+</script>
+<script>
+  // Menu burger mobile : ouverture/fermeture, clic à côté, touche Échap
+  (function(){
+    const burger = document.getElementById('burgerBtn');
+    const overlay = document.getElementById('mobileOverlay');
+    const menu = document.getElementById('mobileMenu');
+    const closeBtn = document.getElementById('mobileClose');
+    if(!burger || !menu || !overlay) return;
+
+    function openMenu(){
+      burger.classList.add('open'); burger.setAttribute('aria-expanded','true');
+      overlay.classList.add('open');
+      menu.classList.add('open'); menu.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      burger.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+      overlay.classList.remove('open');
+      menu.classList.remove('open'); menu.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    burger.addEventListener('click', () => { menu.classList.contains('open') ? closeMenu() : openMenu(); });
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu); // clic à côté, sur le fond assombri
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('blur', closeMenu); // sortie en dehors de la fenêtre
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  })();
 </script>
 </body>
 </html>
