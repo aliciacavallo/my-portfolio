@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+  
 :root{
   --bg:            #FFF4EC;
   --bg-alt:        #FFE7D8;
@@ -57,7 +58,7 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:700; line-height:1.08; lett
 
 @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } }
 
-/* signature bulles */
+/* bulles */
 .bubble{
   position:absolute; 
   border-radius:50%; 
@@ -194,16 +195,26 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 <body>
 <header>
   <nav class="wrap">
-    <a href="index.html" class="logo"><img src="assets/img/profil.webp" alt="illustration vectorielle d'Alicia Cavallo">Alicia Cavallo</a>
+    <a href="index.html" class="logo"><img src="assets/img/Photo-profil.webp" alt="Photo d'Alicia Cavallo">Alicia Cavallo</a>
     <div class="navlinks">
       <a href="index.html" class="active">Accueil</a>
       <a href="assets/pages/about.html">À propos</a>
       <a href="assets/pages/projets.html">Projets</a>
       <a href="assets/pages/contact.html">Contact</a>
     </div>
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
-
+<div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
+  <a href="index.html" class="active">Accueil</a>
+      <a href="assets/pages/about.html">À propos</a>
+      <a href="assets/pages/projets.html">Projets</a>
+      <a href="assets/pages/contact.html">Contact</a>
+</nav>
 <section class="hero">
   <div class="wrap">
     <div>
