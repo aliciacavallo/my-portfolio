@@ -136,6 +136,25 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 .galerie .groupeimg img{ aspect-ratio:1/1; }
 .galerie.compact figure img{ aspect-ratio:1/1; }
 
+/* fiche projet détaillée (site MSP, Linktree) */
+.projet-fiche{ display:grid; grid-template-columns:1.15fr 1fr; gap:44px; align-items:start; }
+.projet-visuel img{ width:100%; border-radius:var(--radius-md); box-shadow:0 18px 40px rgba(59,34,22,.12); }
+.projet-fiche .galerie{ grid-template-columns:1.6fr 1fr; gap:18px; }
+.projet-fiche .galerie img{ aspect-ratio:auto; object-fit:cover; object-position:top; height:100%; max-height:420px; }
+.projet-infos dl{ display:grid; gap:10px; margin-bottom:22px; }
+.projet-infos dl div{ display:grid; grid-template-columns:100px 1fr; gap:12px; }
+.projet-infos dt{ font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--coral-deep); font-weight:700; padding-top:4px; }
+.projet-infos dd{ color:var(--ink); }
+.projet-infos h3{ font-size:1.15rem; margin:22px 0 10px; color:var(--coral-deep); }
+.projet-liste{ padding-left:1.1em; display:grid; gap:6px; color:var(--ink-soft); }
+.projet-liste code{ font-family:var(--mono); font-size:.85em; background:var(--bg-alt); padding:1px 5px; border-radius:6px; color:var(--ink); }
+.tags{ list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+.tags li{ font-family:var(--mono); font-size:.75rem; padding:6px 12px; border-radius:999px; background:var(--teal-soft); color:var(--teal); font-weight:700; }
+.projet-btns{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.projet-infos .btn:focus-visible{ outline:3px solid var(--teal); outline-offset:3px; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width:900px){ .projet-fiche{ grid-template-columns:1fr; gap:28px; } }
+
 .retour-top{ margin-top:36px; text-align:center; }
 .retour-top a{ font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); font-weight:700; }
 .retour-top a:hover{ color:var(--coral-deep); }
@@ -250,7 +269,8 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
         <li><a href="#logo">Défis logo &amp; branding</a></li>
         <li><a href="#web">HTML / CSS</a></li>
         <li><a href="#maquettes">Maquettes Figma</a></li>
-        <li><a href="#webdesign">Webdesign</a></li>
+        <li><a href="#webdesign">Site web — MSP Salutem Domum</a></li>
+        <li><a href="#linktree">Linktree sur-mesure</a></li>
       </ul>
     </div>
   </div>
@@ -362,8 +382,64 @@ footer.sitefooter .copy{ width:100%; text-align:center; font-family:var(--mono);
 <section class="cat-section">
   <div class="wrap">
     <div class="cat-intro reveal">
-      <h2 id="webdesign">Site web</h2>
-      <p>Projet d'examen de validation de la formation de "Concepteur designer UI". Conception de A à Z d'un site web — <a href="https://msp-st-genies.etudiants3w.com/" style="color:var(--coral-deep);font-weight:600;">voir le site web</a>.</p>
+      <h2 id="webdesign">Site web — MSP Salutem Domum</h2>
+      <p>Site de la Maison de Santé Pluriprofessionnelle Salutem Domum, à Saint-Géniès-de-Malgoirès (Gard). Né comme projet d'examen de ma formation « Concepteur designer UI », il est aujourd'hui en ligne et utilisé par la MSP et ses patients.</p>
+    </div>
+    <div class="projet-fiche reveal">
+      <figure class="projet-visuel"><img src="../img/site-web-msp.webp" alt="Page d'accueil du site de la MSP Salutem Domum" loading="lazy"></figure>
+      <div class="projet-infos">
+        <dl>
+          <div><dt>Client</dt><dd>MSP Salutem Domum</dd></div>
+          <div><dt>Mon rôle</dt><dd>Conception et réalisation de A à Z</dd></div>
+          <div><dt>Outils</dt><dd>Figma, WordPress, Divi</dd></div>
+        </dl>
+        <h3>Les enjeux</h3>
+        <ul class="projet-liste">
+          <li>Expliquer simplement ce qu'est une MSP, ses missions de santé publique et ses protocoles de soins.</li>
+          <li>Aider les patients à trouver rapidement un professionnel et les infos pratiques (accès, contact, numéros utiles).</li>
+          <li>Permettre à l'équipe de publier ses actualités en autonomie (campagnes de dépistage, vaccination, prévention).</li>
+          <li>Rester lisible pour tous les publics, avec une barre d'outils d'accessibilité.</li>
+        </ul>
+        <h3>Ce qui a été réalisé</h3>
+        <ul class="tags">
+          <li>Arborescence</li><li>Maquettes</li><li>Annuaire des membres</li><li>Actualités</li><li>FAQ</li><li>Numéros utiles</li><li>Accessibilité</li>
+        </ul>
+        <a href="https://msp-salutemdomum.fr/" class="btn btn-primary" target="_blank" rel="noopener">Voir le site en ligne <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat-section">
+  <div class="wrap">
+    <div class="cat-intro reveal">
+      <h2 id="linktree">Linktree sur-mesure</h2>
+      <p>Ma page de liens personnelle, conçue dans Figma puis codée à la main en HTML et CSS, sans framework ni service payant. L'objectif n'était pas l'effet visuel, mais la qualité du code et le lien direct entre design system et CSS.</p>
+    </div>
+    <div class="projet-fiche reveal">
+      <div class="galerie">
+        <figure><img src="../img/linktree-desk.webp" alt="Linktree d'Alicia Cavallo — version desktop" loading="lazy"><figcaption>Version desktop</figcaption></figure>
+        <figure><img src="../img/linktree-mobile.webp" alt="Linktree d'Alicia Cavallo — version mobile" loading="lazy" class="portrait"><figcaption>Version mobile</figcaption></figure>
+      </div>
+      <div class="projet-infos">
+        <dl>
+          <div><dt>Type</dt><dd>Projet personnel</dd></div>
+          <div><dt>Outils</dt><dd>Figma, HTML, CSS, Prettier, Stylelint, GoatCounter</dd></div>
+        </dl>
+        <h3>Les contraintes que je me suis fixées</h3>
+        <ul class="projet-liste">
+          <li>Toutes les valeurs viennent de <strong>design tokens</strong> nommés comme les variables Figma (primitives → sémantiques).</li>
+          <li>Architecture CSS en <strong>@layer</strong> : aucun <code>!important</code>, aucun id dans le CSS, 3 niveaux de sélecteur maximum.</li>
+          <li>Classes <strong>BEM</strong> identiques aux composants Figma ; les variants ne changent que des variables.</li>
+          <li><strong>Accessibilité</strong> : HTML sémantique, contrastes AA, focus visible, navigation clavier, <code>prefers-reduced-motion</code>.</li>
+          <li>Statistiques de visites et de clics <strong>sans cookies</strong>, donc sans bandeau de consentement.</li>
+        </ul>
+        <div class="projet-btns">
+          <a href="https://aliciacavallo.github.io/linktree/" class="btn btn-primary" target="_blank" rel="noopener">Voir la page <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a>
+          <a href="https://github.com/aliciacavallo/linktree" class="btn btn-ghost" target="_blank" rel="noopener">Code sur GitHub<span class="sr-only"> (nouvel onglet)</span></a>
+          <a href="https://www.figma.com/design/Nny4156fBSTmvg1VFDw5uX/Mon-linktree?node-id=0-1" class="btn btn-ghost" target="_blank" rel="noopener">Maquette Figma<span class="sr-only"> (nouvel onglet)</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
